@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5AAFF2">
 
-    <!-- The exact Elena TV image selected in chat is decoded from the bundled assets. -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -12,13 +12,11 @@
         android:contentDescription="@null"
         android:scaleType="fitXY" />
 
-    <!-- Covers the baked-in example clock and keeps the real clock/date live. -->
+    <!-- The sample time baked into the chosen mock-up is covered by this live panel. -->
     <LinearLayout
-        android:layout_width="240dp"
-        android:layout_height="82dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
+        android:id="@+id/liveClockPanel"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:background="@drawable/live_clock_panel"
         android:gravity="end|center_vertical"
         android:orientation="vertical"
@@ -52,63 +50,48 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Transparent D-pad/click hotspots sit directly over the four cards in the selected image. -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="176dp"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="190dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+    <!-- Direct children of the FrameLayout: MainActivity sizes/positions them from the exact
+         normalized card coordinates in the 1536x864 selected image. -->
+    <View
+        android:id="@+id/youtubeButton"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/card_hotspot"
+        android:clickable="true"
+        android:contentDescription="YouTube"
+        android:focusable="true" />
 
-        <View
-            android:id="@+id/youtubeButton"
-            android:layout_width="178dp"
-            android:layout_height="164dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/card_hotspot"
-            android:clickable="true"
-            android:contentDescription="YouTube"
-            android:focusable="true" />
+    <View
+        android:id="@+id/disneyButton"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/card_hotspot"
+        android:clickable="true"
+        android:contentDescription="Disney+"
+        android:focusable="true" />
 
-        <View
-            android:id="@+id/disneyButton"
-            android:layout_width="178dp"
-            android:layout_height="164dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/card_hotspot"
-            android:clickable="true"
-            android:contentDescription="Disney+"
-            android:focusable="true" />
+    <View
+        android:id="@+id/netflixButton"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/card_hotspot"
+        android:clickable="true"
+        android:contentDescription="Netflix"
+        android:focusable="true" />
 
-        <View
-            android:id="@+id/netflixButton"
-            android:layout_width="178dp"
-            android:layout_height="164dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/card_hotspot"
-            android:clickable="true"
-            android:contentDescription="Netflix"
-            android:focusable="true" />
-
-        <View
-            android:id="@+id/maxButton"
-            android:layout_width="178dp"
-            android:layout_height="164dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/card_hotspot"
-            android:clickable="true"
-            android:contentDescription="Max"
-            android:focusable="true" />
-    </LinearLayout>
+    <View
+        android:id="@+id/maxButton"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@drawable/card_hotspot"
+        android:clickable="true"
+        android:contentDescription="Max"
+        android:focusable="true" />
 
     <View
         android:id="@+id/settingsButton"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="18dp"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:background="@drawable/settings_hotspot"
         android:clickable="true"
         android:contentDescription="@string/settings"
