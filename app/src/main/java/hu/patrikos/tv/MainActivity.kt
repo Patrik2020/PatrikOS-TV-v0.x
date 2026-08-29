@@ -34,7 +34,7 @@ class MainActivity : Activity() {
         repository = AppRepository(this)
         adapter = AppAdapter(::launchApp)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.layoutManager = GridLayoutManager(this, 4)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
 
