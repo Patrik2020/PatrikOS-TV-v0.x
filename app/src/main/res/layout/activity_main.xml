@@ -2,7 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/elena_bluey_background">
+    android:background="@color/background">
+
+    <hu.patrikos.tv.BlueyBackgroundView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:focusable="false" />
 
     <LinearLayout
         android:layout_width="match_parent"
