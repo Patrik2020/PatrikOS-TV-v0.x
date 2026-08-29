@@ -28,6 +28,14 @@ The UI uses classic Android Views rather than Compose to keep the dependency and
 
 Android TV has a separate Google Play target-API exception; API 34 remains acceptable for new TV apps at the 31 August 2026 policy change. We still test behavior on newer versions before a store release.
 
+## First real-device boot
+
+PatrikOS TV v0.1 successfully installed over ADB and launched on the physical TCL 32S5400AF reference television on 2026-08-29. The launcher discovered the installed TV applications, rendered the D-pad UI, displayed the live clock, and correctly reported the Android 11 / API 30 environment and approximately 0.9 GB of RAM.
+
+![PatrikOS TV v0.1 first boot on TCL 32S5400AF](docs/assets/patrikos-tv-v0.1-first-boot.jpg)
+
+The image is cropped to the television screen so the public repository does not expose unrelated personal surroundings.
+
 ## Build
 
 Open the repository in Android Studio with JDK 17, or use Gradle 8.9:
