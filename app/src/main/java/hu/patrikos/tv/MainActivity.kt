@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Base64
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -72,35 +71,26 @@ class MainActivity : Activity() {
 
     private fun loadSelectedBackground() {
         val imageView = findViewById<ImageView>(R.id.backgroundImage)
-
-        // Optional developer override: if a newer background was pushed to the app's files,
-        // prefer it. Normal installs use the exact selected Elena TV image bundled below.
         val external = getExternalFilesDir(null)?.let { File(it, BACKGROUND_FILE) }
         val internal = File(filesDir, BACKGROUND_FILE)
-        val overrideFile = listOfNotNull(external, internal).firstOrNull { it.isFile }
+        val file = listOfNotNull(external, internal).firstOrNull { it.isFile }
 
-        if (overrideFile != null) {
-            val bitmap = BitmapFactory.decodeFile(overrideFile.absolutePath)
-            if (bitmap != null) {
-                imageView.setImageBitmap(bitmap)
-                return
-            }
+        if (file == null) {
+            Toast.makeText(
+                this,
+                "Az Elena TV háttér hiányzik. Másold fel az elena_bluey_exact.png fájlt.",
+                Toast.LENGTH_LONG
+            ).show()
+            return
         }
 
-        val bundledBitmap = runCatching {
-            val encoded = SELECTED_BACKGROUND_ASSETS.joinToString(separator = "") { assetName ->
-                assets.open(assetName).bufferedReader().use { reader -> reader.readText().trim() }
-            }
-            val bytes = Base64.decode(encoded, Base64.DEFAULT)
-            BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-        }.getOrNull()
-
-        if (bundledBitmap != null) {
-            imageView.setImageBitmap(bundledBitmap)
+        val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap)
         } else {
             Toast.makeText(
                 this,
-                "Az Elena TV háttér nem tölthető be.",
+                "Az Elena TV PNG háttér nem tölthető be.",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -202,11 +192,6 @@ class MainActivity : Activity() {
     }
 
     companion object {
-        private const val BACKGROUND_FILE = "elena_bluey.webp"
-        private val SELECTED_BACKGROUND_ASSETS = listOf(
-            "elena_selected_bg_1.b64",
-            "elena_selected_bg_2.b64",
-            "elena_selected_bg_3.b64"
-        )
+        private const val BACKGROUND_FILE = "elena_bluey_exact.png"
     }
 }
