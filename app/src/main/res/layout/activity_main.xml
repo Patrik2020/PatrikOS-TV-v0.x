@@ -2,53 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/elena_background">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="26dp"
-        android:alpha="0.20"
-        android:focusable="false"
-        android:text="✦"
-        android:textColor="@color/text_primary"
-        android:textSize="26sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:layout_marginStart="26dp"
-        android:layout_marginBottom="54dp"
-        android:alpha="0.16"
-        android:focusable="false"
-        android:text="★"
-        android:textColor="@color/accent"
-        android:textSize="30sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="72dp"
-        android:alpha="0.18"
-        android:focusable="false"
-        android:text="✦"
-        android:textColor="@color/text_primary"
-        android:textSize="22sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="18dp"
-        android:alpha="0.10"
-        android:focusable="false"
-        android:text="☁"
-        android:textColor="@color/text_primary"
-        android:textSize="62sp" />
+    android:background="@drawable/elena_bluey_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,6 +28,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:shadowColor="#66000000"
+                    android:shadowDx="0"
+                    android:shadowDy="2"
+                    android:shadowRadius="3"
                     android:text="@string/app_name"
                     android:textColor="@color/text_primary"
                     android:textSize="38sp"
@@ -83,6 +41,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:shadowColor="#55000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:text="@string/version_badge"
                     android:textColor="@color/text_secondary"
                     android:textSize="15sp" />
@@ -100,6 +62,10 @@
                     android:format12Hour="h:mm"
                     android:format24Hour="HH:mm"
                     android:gravity="end"
+                    android:shadowColor="#66000000"
+                    android:shadowDx="0"
+                    android:shadowDy="2"
+                    android:shadowRadius="3"
                     android:textColor="@color/text_primary"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -110,6 +76,10 @@
                     android:format12Hour="yyyy. MMMM d., EEEE"
                     android:format24Hour="yyyy. MMMM d., EEEE"
                     android:gravity="end"
+                    android:shadowColor="#55000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:textColor="@color/text_secondary"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -133,8 +103,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
+            android:shadowColor="#66000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="3"
             android:text="@string/choose_something"
             android:textColor="@color/text_primary"
             android:textSize="24sp"
@@ -143,7 +117,7 @@
         <TextView
             android:id="@+id/statusText"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:text="@string/loading_apps"
             android:textColor="@color/text_secondary"
@@ -156,15 +130,19 @@
             android:layout_weight="1"
             android:clipToPadding="false"
             android:focusable="false"
-            android:paddingStart="92dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="92dp"
-            android:paddingBottom="20dp" />
+            android:paddingStart="42dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="42dp"
+            android:paddingBottom="18dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:gravity="center"
+            android:shadowColor="#55000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:text="@string/footer_text"
             android:textColor="@color/text_muted"
             android:textSize="12sp" />
