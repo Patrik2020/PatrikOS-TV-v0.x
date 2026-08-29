@@ -15,7 +15,19 @@ android {
         versionName = "0.2.0"
     }
 
+    signingConfigs {
+        create("development") {
+            storeFile = rootProject.file("keystore/patrikos-dev.keystore")
+            storePassword = "patrikos-dev"
+            keyAlias = "patrikos-dev"
+            keyPassword = "patrikos-dev"
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("development")
+        }
         release {
             isMinifyEnabled = true
             proguardFiles(
