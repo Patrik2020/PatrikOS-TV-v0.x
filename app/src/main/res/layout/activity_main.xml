@@ -75,8 +75,9 @@
             android:paddingStart="18dp"
             android:paddingEnd="18dp"
             android:text="@string/settings"
-            android:textColor="@color/text_primary"
-            android:textSize="15sp" />
+            android:textColor="@color/card_text"
+            android:textSize="15sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
