@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Elena TV</string>
-    <string name="version_badge">PatrikOS v0.2</string>
+    <string name="version_badge">PatrikOS v0.3</string>
     <string name="settings">Beállítások</string>
     <string name="choose_something">Mit nézzünk ma?</string>
     <string name="loading_apps">Kedvencek betöltése…</string>
-    <string name="no_tv_apps">A YouTube, Netflix vagy Disney+ közül egyik sem található.</string>
+    <string name="no_tv_apps">A YouTube, Disney+, Netflix vagy Max közül egyik sem található.</string>
     <string name="cannot_launch">%1$s nem indítható.</string>
     <string name="settings_unavailable">A rendszerbeállítások nem nyithatók meg.</string>
     <string name="footer_text">Egyszerű • gyors • PatrikOS</string>

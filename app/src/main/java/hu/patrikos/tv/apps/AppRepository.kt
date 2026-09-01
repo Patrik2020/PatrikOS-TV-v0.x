@@ -19,12 +19,20 @@ class AppRepository(private val context: Context) {
             labelKeywords = setOf("youtube")
         ),
         PreferredApp(
+            packageNames = setOf("com.disney.disneyplus"),
+            labelKeywords = setOf("disney", "disney+")
+        ),
+        PreferredApp(
             packageNames = setOf("com.netflix.ninja"),
             labelKeywords = setOf("netflix")
         ),
         PreferredApp(
-            packageNames = setOf("com.disney.disneyplus"),
-            labelKeywords = setOf("disney", "disney+")
+            packageNames = setOf(
+                "com.wbd.stream",
+                "com.hbo.hbonow",
+                "com.hbo.hbogo"
+            ),
+            labelKeywords = setOf("max", "hbo max", "hbo go")
         )
     )
 
