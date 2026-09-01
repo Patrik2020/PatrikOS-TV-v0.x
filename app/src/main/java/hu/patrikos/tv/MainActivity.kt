@@ -1,9 +1,7 @@
 package hu.patrikos.tv
 
 import android.app.Activity
-import android.app.ActivityManager
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -14,14 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.patrikos.tv.apps.AppAdapter
 import hu.patrikos.tv.apps.AppEntry
 import hu.patrikos.tv.apps.AppRepository
-import java.util.Locale
 import java.util.concurrent.Executors
 
 class MainActivity : Activity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var statusText: TextView
-    private lateinit var deviceInfoText: TextView
     private lateinit var adapter: AppAdapter
     private lateinit var repository: AppRepository
 
@@ -34,23 +30,18 @@ class MainActivity : Activity() {
 
         recyclerView = findViewById(R.id.appGrid)
         statusText = findViewById(R.id.statusText)
-        deviceInfoText = findViewById(R.id.deviceInfoText)
 
         repository = AppRepository(this)
         adapter = AppAdapter(::launchApp)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 5)
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
 
-        findViewById<TextView>(R.id.refreshButton).setOnClickListener {
-            loadApps(requestFirstItemFocus = true)
-        }
         findViewById<TextView>(R.id.settingsButton).setOnClickListener {
             openSystemSettings()
         }
 
-        deviceInfoText.text = buildDeviceSummary()
         loadApps(requestFirstItemFocus = true)
     }
 
@@ -110,23 +101,6 @@ class MainActivity : Activity() {
         }.onFailure {
             Toast.makeText(this, R.string.settings_unavailable, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun buildDeviceSummary(): String {
-        val activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
-        val memoryInfo = ActivityManager.MemoryInfo()
-        activityManager.getMemoryInfo(memoryInfo)
-        val totalRamGb = memoryInfo.totalMem / 1024.0 / 1024.0 / 1024.0
-        val manufacturer = Build.MANUFACTURER.replaceFirstChar { it.uppercase() }
-
-        return getString(
-            R.string.device_summary,
-            manufacturer,
-            Build.MODEL,
-            Build.VERSION.RELEASE,
-            Build.VERSION.SDK_INT,
-            String.format(Locale.US, "%.1f", totalRamGb)
-        )
     }
 
     @Suppress("DEPRECATION")

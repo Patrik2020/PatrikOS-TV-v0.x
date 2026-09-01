@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PatrikOS TV</string>
-    <string name="version_badge">v0.1</string>
-    <string name="refresh">Frissítés</string>
+    <string name="app_name">Elena TV</string>
+    <string name="version_badge">PatrikOS v0.2</string>
     <string name="settings">Beállítások</string>
-    <string name="loading_apps">TV-alkalmazások betöltése…</string>
-    <string name="no_tv_apps">Nem találtam indítható Android TV alkalmazást.</string>
+    <string name="choose_something">Mit nézzünk ma?</string>
+    <string name="loading_apps">Kedvencek betöltése…</string>
+    <string name="no_tv_apps">A YouTube, Netflix vagy Disney+ közül egyik sem található.</string>
     <string name="cannot_launch">%1$s nem indítható.</string>
     <string name="settings_unavailable">A rendszerbeállítások nem nyithatók meg.</string>
-    <string name="device_summary">%1$s %2$s • Android %3$s (API %4$d) • %5$s GB RAM</string>
+    <string name="footer_text">Egyszerű • gyors • PatrikOS</string>
 </resources>
